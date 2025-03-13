@@ -5,7 +5,9 @@ import java.util.List;
 import com.example.model.Product;
 
 public interface IProductDAO extends GenericDAO<Product> {
+    Product findOne(Long id);
+
     List<Product> findByCategoryId(int categoryId);
 
-    Integer save(Product products);
+    Long save(Product products);
 }

@@ -52,9 +52,4 @@ public class HomeController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
         rd.forward(request, response);
     }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServerException, IOException {
-
-    }
 }

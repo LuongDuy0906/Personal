@@ -7,6 +7,7 @@ com\example\dao\GenericDAO.class
 com\example\mapper\CategoryMapper.class
 com\example\dao\IProductDAO.class
 com\example\dao\ICategoryDAO.class
+com\example\utils\HttpUtil.class
 com\example\dao\impl\CategoryDAO.class
 com\example\mapper\RowMapper.class
 Main.class
