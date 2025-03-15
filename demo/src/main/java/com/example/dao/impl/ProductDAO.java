@@ -16,10 +16,18 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
     @Override
-    public Integer save(Product products) {
+    public Long save(Product products) {
         String sql = "INSERT INTO SanPham (TenSP, MoTa, LoaiSP, Gia, GiaKM) values (?, ?, ?, ?, ?)";
 
         return insert(sql, products.getTenSP(), products.getMoTa(), products.getLoaiSP(), products.getGia(),
                 products.getGiaKM());
+    }
+
+    @Override
+    public Product findOne(Long id) {
+        String sql = "SELECT * FROM SanPham WHERE LoaiSP = ?";
+
+        List<Product> products = query(sql, new ProductMapper(), id);
+        return products.isEmpty() ? null : products.get(0);
     }
 }

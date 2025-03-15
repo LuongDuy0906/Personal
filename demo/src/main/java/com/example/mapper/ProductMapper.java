@@ -17,7 +17,8 @@ public class ProductMapper implements RowMapper<Product> {
             product.setGiaKM(rs.getInt("GiaKM"));
             return product;
         } catch (SQLException e) {
-            return null;
+            e.printStackTrace();
         }
+        return null;
     }
 }

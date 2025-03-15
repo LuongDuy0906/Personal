@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,14 +20,13 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             String url, name, password;
             url = "jdbc:mysql://localhost:3306/laptop_shop";
             name = "root";
-            password = "09062004lol";
+            password = "09062004LOL";
             return DriverManager.getConnection(url, name, password);
         } catch (ClassNotFoundException | SQLException e) {
             return null;
         }
     }
 
-    @SuppressWarnings("hiding")
     @Override
     public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
         List<T> result = new ArrayList<>();
@@ -118,20 +118,20 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     }
 
     @Override
-    public Integer insert(String sql, Object... parameters) {
+    public Long insert(String sql, Object... parameters) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet rs = null;
+        Long id = null;
         try {
-            Integer id = null;
             connection = getConnection();
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement(sql);
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             setParameter(statement, parameters);
             statement.executeUpdate();
             rs = statement.getGeneratedKeys();
             if (rs.next()) {
-                id = rs.getInt(1);
+                id = rs.getLong(1);
             }
             connection.commit();
             return id;
@@ -141,9 +141,10 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     connection.rollback();
                 } catch (SQLException e1) {
                     // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    return null;
                 }
             }
+            return null;
         } finally {
             try {
                 if (connection != null) {
@@ -156,9 +157,8 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     rs.close();
                 }
             } catch (SQLException e2) {
-                e2.printStackTrace();
+                return null;
             }
         }
-        return null;
     }
 }

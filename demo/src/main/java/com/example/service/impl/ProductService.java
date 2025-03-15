@@ -21,9 +21,9 @@ public class ProductService implements IProductService {
 
     @Override
     public Product save(Product products) {
-        Integer prodcutID = productDAO.save(products);
-        System.out.println(prodcutID);
-        return null;
+        Long LoaiSP = productDAO.save(products);
+
+        return productDAO.findOne(LoaiSP);
     }
 
 }
