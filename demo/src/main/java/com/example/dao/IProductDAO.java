@@ -10,4 +10,6 @@ public interface IProductDAO extends GenericDAO<Product> {
     List<Product> findByCategoryId(int categoryId);
 
     Long save(Product products);
+
+    void update(Product updProduct);
 }

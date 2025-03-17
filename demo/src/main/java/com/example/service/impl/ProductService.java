@@ -26,4 +26,12 @@ public class ProductService implements IProductService {
         return productDAO.findOne(LoaiSP);
     }
 
+    @Override
+    public Product update(Product updProduct) {
+        Product oldProc = productDAO.findOne(updProduct.getSPID());
+        updProduct.setCreated_at(oldProc.getCreated_at());
+        productDAO.update(updProduct);
+        return productDAO.findOne(updProduct.getSPID());
+    }
+
 }

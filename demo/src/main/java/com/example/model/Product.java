@@ -3,7 +3,7 @@ package com.example.model;
 import java.sql.Timestamp;
 
 public class Product {
-    private int SPID;
+    private Long SPID;
     private String TenSP;
     private String MoTa;
     private int SoLuong;
@@ -14,11 +14,11 @@ public class Product {
     private Timestamp created_at;
     private Timestamp updated_at;
 
-    public int getSPID() {
+    public Long getSPID() {
         return SPID;
     }
 
-    public void setSPID(int sPID) {
+    public void setSPID(Long sPID) {
         SPID = sPID;
     }
 

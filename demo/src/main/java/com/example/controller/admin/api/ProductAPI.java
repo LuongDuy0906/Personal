@@ -29,13 +29,17 @@ public class ProductAPI extends HttpServlet {
                 mapper.writeValue(response.getOutputStream(), products);
         }
 
+        protected void doPut(HttpServletRequest request, HttpServletResponse response)
+                        throws ServletException, IOException {
+                ObjectMapper mapper = new ObjectMapper();
+                request.setCharacterEncoding("UTF-8");
+                response.setContentType("application/json");
+                Product updProduct = HttpUtil.of(request.getReader()).toModel(Product.class);
+                updProduct = productService.update(updProduct);
+                mapper.writeValue(response.getOutputStream(), updProduct);
+        }
+
         /*
-         * protected void doPut(HttpServletRequest request, HttpServletResponse
-         * response)
-         * throws ServletException, IOException {
-         * 
-         * }
-         * 
          * protected void doDelete(HttpServletRequest request, HttpServletResponse
          * response)
          * throws ServletException, IOException {

@@ -8,4 +8,6 @@ public interface IProductService {
     List<Product> findByCategoryId(int categoryId);
 
     Product save(Product products);
+
+    Product update(Product updProduct);
 }

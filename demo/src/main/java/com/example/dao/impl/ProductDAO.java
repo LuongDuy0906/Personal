@@ -25,9 +25,21 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public Product findOne(Long id) {
-        String sql = "SELECT * FROM SanPham WHERE LoaiSP = ?";
+        String sql = "SELECT * FROM SanPham WHERE SPID = ?";
 
         List<Product> products = query(sql, new ProductMapper(), id);
         return products.isEmpty() ? null : products.get(0);
+    }
+
+    @Override
+    public void update(Product updProduct) {
+        StringBuilder sql = new StringBuilder("UPDATE SanPham SET TenSP = ?, MoTa = ?,");
+        sql.append(" SoLuong = ?, LoaiSP = ?,");
+        sql.append(" KMID = ?, Gia = ?, GiaKM = ?,");
+        sql.append(" created_at = ? WHERE SPID = ?");
+
+        update(sql.toString(), updProduct.getTenSP(), updProduct.getMoTa(), updProduct.getSoLuong(),
+                updProduct.getLoaiSP(), updProduct.getKMID(), updProduct.getGia(),
+                updProduct.getGiaKM(), updProduct.getCreated_at(), updProduct.getSPID());
     }
 }
