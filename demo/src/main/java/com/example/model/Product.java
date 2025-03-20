@@ -1,8 +1,11 @@
 package com.example.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
+    private long[] SPIDs;
     private Long SPID;
     private String TenSP;
     private String MoTa;
@@ -13,13 +16,14 @@ public class Product {
     private int GiaKM;
     private Timestamp created_at;
     private Timestamp updated_at;
+    private List<Product> listResult = new ArrayList<>();
 
-    public Long getSPID() {
-        return SPID;
+    public List<Product> getListResult() {
+        return listResult;
     }
 
-    public void setSPID(Long sPID) {
-        SPID = sPID;
+    public void setListResult(List<Product> listResult) {
+        this.listResult = listResult;
     }
 
     public String getTenSP() {
@@ -92,5 +96,21 @@ public class Product {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public long[] getSPIDs() {
+        return SPIDs;
+    }
+
+    public void setSPIDs(long[] sPIDs) {
+        SPIDs = sPIDs;
+    }
+
+    public Long getSPID() {
+        return SPID;
+    }
+
+    public void setSPID(Long sPID) {
+        SPID = sPID;
     }
 }

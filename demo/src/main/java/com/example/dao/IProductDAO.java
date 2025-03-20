@@ -12,4 +12,8 @@ public interface IProductDAO extends GenericDAO<Product> {
     Long save(Product products);
 
     void update(Product updProduct);
+
+    void delete(long ids);
+
+    List<Product> findAll();
 }
