@@ -10,4 +10,8 @@ public interface IProductService {
     Product save(Product products);
 
     Product update(Product updProduct);
+
+    void delete(long[] ids);
+
+    List<Product> findAll();
 }

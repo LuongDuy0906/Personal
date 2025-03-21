@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.model.Product;
 import com.example.service.ICategoryService;
 import com.example.service.IProductService;
 
@@ -32,20 +31,6 @@ public class HomeController extends HttpServlet {
 
         int code = 1;
 
-        String TenSP = "Laptop";
-        String MoTa = "Don gia chi la Laptop";
-        int LoaiSP = 1;
-        int Gia = 100000;
-        int GiaKM = 9000;
-
-        Product products = new Product();
-        products.setTenSP(TenSP);
-        products.setMoTa(MoTa);
-        products.setLoaiSP(LoaiSP);
-        products.setGia(Gia);
-        products.setGiaKM(GiaKM);
-
-        productService.save(products);
         request.setAttribute("product", productService.findByCategoryId(code));
         request.setAttribute("category", categoryService.findAll());
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");

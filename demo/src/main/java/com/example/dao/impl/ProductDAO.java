@@ -17,10 +17,11 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public Long save(Product products) {
-        String sql = "INSERT INTO SanPham (TenSP, MoTa, LoaiSP, Gia, GiaKM) values (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO SanPham (TenSP, MoTa, SoLuong, LoaiSP, KMID, Gia, GiaKM, created_at) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        return insert(sql, products.getTenSP(), products.getMoTa(), products.getLoaiSP(), products.getGia(),
-                products.getGiaKM());
+        return insert(sql, products.getTenSP(), products.getMoTa(), products.getSoLuong(), products.getLoaiSP(),
+                products.getKMID(), products.getGia(),
+                products.getGiaKM(), products.getCreated_at());
     }
 
     @Override
@@ -33,13 +34,23 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public void update(Product updProduct) {
-        StringBuilder sql = new StringBuilder("UPDATE SanPham SET TenSP = ?, MoTa = ?,");
-        sql.append(" SoLuong = ?, LoaiSP = ?,");
-        sql.append(" KMID = ?, Gia = ?, GiaKM = ?,");
-        sql.append(" created_at = ? WHERE SPID = ?");
+        String sql = "UPDATE SanPham SET TenSP = ?, MoTa = ?, SoLuong = ?, LoaiSP = ?, KMID = ?, Gia = ?, GiaKM = ?, created_at = ? WHERE SPID = ?";
 
-        update(sql.toString(), updProduct.getTenSP(), updProduct.getMoTa(), updProduct.getSoLuong(),
+        update(sql, updProduct.getTenSP(), updProduct.getMoTa(), updProduct.getSoLuong(),
                 updProduct.getLoaiSP(), updProduct.getKMID(), updProduct.getGia(),
                 updProduct.getGiaKM(), updProduct.getCreated_at(), updProduct.getSPID());
+    }
+
+    @Override
+    public void delete(long ids) {
+        String sql = "DELETE FROM SanPham WHERE SPID = ?";
+        update(sql, ids);
+    }
+
+    @Override
+    public List<Product> findAll() {
+        String sql = "SELECT * FROM SanPham";
+
+        return query(sql, new ProductMapper());
     }
 }

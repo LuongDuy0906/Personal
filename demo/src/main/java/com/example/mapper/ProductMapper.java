@@ -16,8 +16,13 @@ public class ProductMapper implements RowMapper<Product> {
             product.setMoTa(rs.getString("MoTa"));
             product.setSoLuong(rs.getInt("SoLuong"));
             product.setLoaiSP(rs.getInt("LoaiSP"));
+            product.setKMID(rs.getInt("KMID"));
             product.setGia(rs.getInt("Gia"));
             product.setGiaKM(rs.getInt("GiaKM"));
+            product.setCreated_at(rs.getTimestamp("created_at"));
+            if (rs.getTimestamp("updated_at") != null) {
+                product.setUpdated_at(rs.getTimestamp("updated_at"));
+            }
             return product;
         } catch (SQLException e) {
             e.printStackTrace();
