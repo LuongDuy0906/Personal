@@ -3,6 +3,7 @@ package com.example.service;
 import java.util.List;
 
 import com.example.model.Product;
+import com.example.paging.Pageble;
 
 public interface IProductService {
     List<Product> findByCategoryId(int categoryId);
@@ -13,5 +14,7 @@ public interface IProductService {
 
     void delete(long[] ids);
 
-    List<Product> findAll();
+    List<Product> findAll(Pageble pageble);
+
+    int getTotalItem();
 }

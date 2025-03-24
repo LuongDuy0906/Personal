@@ -1,3 +1,4 @@
+com\example\utils\FormUtil.class
 com\example\dao\ICategoryDAO.class
 Main.class
 com\example\model\Role.class
@@ -16,10 +17,13 @@ com\example\controller\home\HomeController.class
 com\example\dao\GenericDAO.class
 com\example\mapper\CategoryMapper.class
 com\example\dao\IProductDAO.class
+com\example\paging\Pageble.class
 com\example\utils\HttpUtil.class
 com\example\dao\impl\CategoryDAO.class
 com\example\mapper\RowMapper.class
 com\example\model\Product.class
+com\example\sort\Sorter.class
+com\example\paging\PageRequest.class
 com\example\controller\admin\api\ProductAPI.class
 com\example\controller\admin\HomeController.class
 com\example\model\Category.class

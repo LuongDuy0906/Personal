@@ -3,6 +3,7 @@ package com.example.model;
 import java.sql.Timestamp;
 
 public class User {
+    private Long UserID;
     private String TenND;
     private String MatKhau;
     private int VaiTro;
@@ -11,6 +12,23 @@ public class User {
     private String SDT;
     private Timestamp created_at;
     private Timestamp updated_at;
+    private Role role = new Role();
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Long getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(Long userID) {
+        UserID = userID;
+    }
 
     public String getTenND() {
         return TenND;
