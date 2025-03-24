@@ -20,7 +20,9 @@
                               </svg>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Đăng nhập</button>
+                            <button class="dropdown-item" type="button">
+                                <a class="nav-link active" href="<c:url value='/dang-nhap?action=login'/>">Đăng nhập</a>
+                            </button>
                             <button class="dropdown-item" type="button">Đăng ký</button>
                         </div>
                     </div>

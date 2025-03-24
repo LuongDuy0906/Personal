@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import com.example.dao.IProductDAO;
 import com.example.model.Product;
+import com.example.paging.Pageble;
 import com.example.service.IProductService;
 
 public class ProductService implements IProductService {
@@ -45,8 +46,12 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<Product> findAll() {
-        return productDAO.findAll();
+    public List<Product> findAll(Pageble pageble) {
+        return productDAO.findAll(pageble);
     }
 
+    @Override
+    public int getTotalItem() {
+        return productDAO.getTotalItem();
+    }
 }

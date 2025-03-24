@@ -3,6 +3,7 @@ package com.example.dao;
 import java.util.List;
 
 import com.example.model.Product;
+import com.example.paging.Pageble;
 
 public interface IProductDAO extends GenericDAO<Product> {
     Product findOne(Long id);
@@ -15,5 +16,7 @@ public interface IProductDAO extends GenericDAO<Product> {
 
     void delete(long ids);
 
-    List<Product> findAll();
+    List<Product> findAll(Pageble pageble);
+
+    int getTotalItem();
 }

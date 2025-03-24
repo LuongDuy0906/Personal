@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.dao.IProductDAO;
 import com.example.mapper.ProductMapper;
 import com.example.model.Product;
+import com.example.paging.Pageble;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
@@ -48,9 +49,21 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
     @Override
-    public List<Product> findAll() {
-        String sql = "SELECT * FROM SanPham";
+    public List<Product> findAll(Pageble pageble) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM SanPham");
+        if (pageble.getSorter() != null) {
+            sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
+        }
 
-        return query(sql, new ProductMapper());
+        if (pageble.getOffset() != null && pageble.getLimit() != null) {
+            sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit() + "");
+        }
+        return query(sql.toString(), new ProductMapper());
+    }
+
+    @Override
+    public int getTotalItem() {
+        String sql = "SELECT COUNT(*) FROM SanPham";
+        return count(sql);
     }
 }
