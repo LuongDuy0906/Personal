@@ -3,25 +3,25 @@ package com.example.model;
 import java.sql.Timestamp;
 
 public class Role {
-    private Long VTID;
-    private String VaiTro;
+    private Long ID;
+    private String Code;
     private Timestamp created_at;
     private Timestamp updated_at;
 
-    public String getVaiTro() {
-        return VaiTro;
+    public String getCode() {
+        return Code;
     }
 
-    public Long getVTID() {
-        return VTID;
+    public Long getID() {
+        return ID;
     }
 
-    public void setVTID(Long vTID) {
-        VTID = vTID;
+    public void setID(Long id) {
+        ID = id;
     }
 
-    public void setVaiTro(String vaiTro) {
-        VaiTro = vaiTro;
+    public void setCode(String code) {
+        Code = code;
     }
 
     public Timestamp getCreated_at() {

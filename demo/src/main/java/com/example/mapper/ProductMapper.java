@@ -11,12 +11,12 @@ public class ProductMapper implements RowMapper<Product> {
     public Product mapRow(ResultSet rs) {
         try {
             Product product = new Product();
-            product.setSPID(rs.getLong("SPID"));
+            product.setID(rs.getLong("ID"));
             product.setTenSP(rs.getString("TenSP"));
             product.setMoTa(rs.getString("MoTa"));
             product.setSoLuong(rs.getInt("SoLuong"));
-            product.setLoaiSP(rs.getInt("LoaiSP"));
-            product.setKMID(rs.getInt("KMID"));
+            product.setIDLSP(rs.getLong("IDLSP"));
+            product.setIDKM(rs.getInt("IDKM"));
             product.setGia(rs.getInt("Gia"));
             product.setGiaKM(rs.getInt("GiaKM"));
             product.setCreated_at(rs.getTimestamp("created_at"));

@@ -9,12 +9,10 @@ import com.example.model.User;
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
-    public User findByUserNameAndPasswordAndStatus(String username, String password) {
-        StringBuilder sql = new StringBuilder("SELECT * FROM NguoiDung AS u");
-        sql.append(" INNER JOIN VaiTro r ON r.VTID = u.VaiTro");
-        sql.append(" WHERE TenND = ? AND MatKhau = ?");
+    public User findByUserNameAndPassword(String username, String password) {
+        String sql = "SELECT * FROM NguoiDung u, VaiTro r WHERE u.IDVT = r.ID AND TenND = ? AND MatKhau = ?";
 
-        List<User> user = query(sql.toString(), new UserMapper(), username, password);
+        List<User> user = query(sql, new UserMapper(), username, password);
         return user.isEmpty() ? null : user.get(0);
     }
 

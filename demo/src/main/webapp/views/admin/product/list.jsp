@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="<c:url value='/admin-product'/>" id="formSubmit" method="">
+    <form action="<c:url value='/admin-product'/>" id="formSubmit" method="GET">
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
@@ -40,9 +40,9 @@
                                 <tbody>
                                     <c:forEach var="item" items="${model.listResult}">
                                         <tr>
-                                            <td>${item.SPID}</td>
+                                            <td>${item.ID}</td>
                                             <td>${item.tenSP}</td>
-                                            <td>${item.loaiSP}</td>
+                                            <td>${item.IDLSP}</td>
                                             <td>${item.soLuong}</td>
                                         </tr>
                                     </c:forEach>

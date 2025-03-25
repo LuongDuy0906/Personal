@@ -31,11 +31,11 @@ public class ProductService implements IProductService {
 
     @Override
     public Product update(Product updProduct) {
-        Product oldProc = productDAO.findOne(updProduct.getSPID());
+        Product oldProc = productDAO.findOne(updProduct.getID());
         updProduct.setCreated_at(oldProc.getCreated_at());
         updProduct.setUpdated_at(new Timestamp(System.currentTimeMillis()));
         productDAO.update(updProduct);
-        return productDAO.findOne(updProduct.getSPID());
+        return productDAO.findOne(updProduct.getID());
     }
 
     @Override

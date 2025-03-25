@@ -15,17 +15,19 @@ public class UserMapper implements RowMapper<User> {
             user.setUserID(rs.getLong("UserID"));
             user.setTenND(rs.getString("TenND"));
             user.setMatKhau(rs.getString("MatKhau"));
-            user.setVaiTro(rs.getInt("VaiTro"));
-            user.setTen(rs.getString("Ten"));
-            user.setDiaChi(rs.getString("DiaChi"));
-            user.setSDT(rs.getString("SDT"));
+            user.setIDVT(rs.getLong("IDVT"));
             user.setCreated_at(rs.getTimestamp("created_at"));
             if (rs.getTimestamp("updated_at") != null) {
                 user.setUpdated_at(rs.getTimestamp("updated_at"));
             }
-            Role role = new Role();
-            role.setVaiTro(rs.getString("VaiTro"));
-            user.setRole(role);
+            try {
+                Role role = new Role();
+                role.setCode(rs.getString("Code"));
+                user.setRole(role);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
             return user;
         } catch (SQLException e) {
             e.printStackTrace();

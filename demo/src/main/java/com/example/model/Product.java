@@ -1,84 +1,13 @@
 package com.example.model;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Product {
-    private long[] SPIDs;
-    private Long SPID;
+public class Product extends Abstract<Product> {
     private String TenSP;
     private String MoTa;
     private int SoLuong;
-    private int LoaiSP;
-    private int KMID;
+    private Long IDLSP;
+    private int IDKM;
     private int Gia;
     private int GiaKM;
-    private Timestamp created_at;
-    private Timestamp updated_at;
-    private List<Product> listResult = new ArrayList<>();
-    private Integer page;
-    private Integer maxPageItem;
-    private Integer totalPage;
-    private Integer totalItem;
-    private String sortName;
-    private String sortBy;
-
-    public String getSortName() {
-        return sortName;
-    }
-
-    public void setSortName(String sortName) {
-        this.sortName = sortName;
-    }
-
-    public String getSortBy() {
-        return sortBy;
-    }
-
-    public void setSortBy(String sortBy) {
-        this.sortBy = sortBy;
-    }
-
-    public Integer getTotalItem() {
-        return totalItem;
-    }
-
-    public void setTotalItem(Integer totalItem) {
-        this.totalItem = totalItem;
-    }
-
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
-
-    public Integer getMaxPageItem() {
-        return maxPageItem;
-    }
-
-    public void setMaxPageItem(Integer maxPageItem) {
-        this.maxPageItem = maxPageItem;
-    }
-
-    public Integer getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(Integer totalPage) {
-        this.totalPage = totalPage;
-    }
-
-    public List<Product> getListResult() {
-        return listResult;
-    }
-
-    public void setListResult(List<Product> listResult) {
-        this.listResult = listResult;
-    }
 
     public String getTenSP() {
         return TenSP;
@@ -104,20 +33,20 @@ public class Product {
         SoLuong = soLuong;
     }
 
-    public int getLoaiSP() {
-        return LoaiSP;
+    public Long getIDLSP() {
+        return IDLSP;
     }
 
-    public void setLoaiSP(int loaiSP) {
-        LoaiSP = loaiSP;
+    public void setIDLSP(Long iDLSP) {
+        IDLSP = iDLSP;
     }
 
-    public int getKMID() {
-        return KMID;
+    public int getIDKM() {
+        return IDKM;
     }
 
-    public void setKMID(int kMID) {
-        KMID = kMID;
+    public void setIDKM(int iDKM) {
+        IDKM = iDKM;
     }
 
     public int getGia() {
@@ -134,37 +63,5 @@ public class Product {
 
     public void setGiaKM(int giaKM) {
         GiaKM = giaKM;
-    }
-
-    public Timestamp getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(Timestamp created_at) {
-        this.created_at = created_at;
-    }
-
-    public Timestamp getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(Timestamp updated_at) {
-        this.updated_at = updated_at;
-    }
-
-    public long[] getSPIDs() {
-        return SPIDs;
-    }
-
-    public void setSPIDs(long[] sPIDs) {
-        SPIDs = sPIDs;
-    }
-
-    public Long getSPID() {
-        return SPID;
-    }
-
-    public void setSPID(Long sPID) {
-        SPID = sPID;
     }
 }

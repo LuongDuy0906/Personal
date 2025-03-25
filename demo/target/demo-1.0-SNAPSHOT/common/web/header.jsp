@@ -17,13 +17,23 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                              </svg>
+                            </svg>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">
-                                <a class="nav-link active" href="<c:url value='/dang-nhap?action=login'/>">Đăng nhập</a>
-                            </button>
-                            <button class="dropdown-item" type="button">Đăng ký</button>
+                            <c:if test="${not empty USERMODEL}">
+                                <button class="dropdown-item" type="button">
+                                    Welcome, ${USERMODEL.tenND}
+                                </button>
+                                <button class="dropdown-item" type="button">
+                                    <a class="nav-link active" href="<c:url value='/thoat?action=logout'/>">Đăng xuất</a>
+                                </button>
+                            </c:if>
+                            <c:if test="${empty USERMODEL}">
+                                <button class="dropdown-item" type="button">
+                                    <a class="nav-link active" href="<c:url value='/dang-nhap?action=login'/>">Đăng nhập</a>
+                                </button>
+                                <button class="dropdown-item" type="button">Đăng ký</button>
+                            </c:if>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -98,20 +108,20 @@
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown dropright">
+                        <!--<div class="nav-item dropdown dropright">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Laptop mới<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                                 <a href="shop.html" class="dropdown-item">Dell</a>
                                 <a href="" class="dropdown-item">Asus</a>
                                 <a href="" class="dropdown-item">Lenovo</a>
                             </div>
-                        </div>
-                        <a href="" class="nav-item nav-link">Laptop 2nd</a>
-                        <a href="" class="nav-item nav-link">Phụ kiện laptop</a>
-                        <a href="" class="nav-item nav-link">Linh kiện PC</a>
-                        <a href="" class="nav-item nav-link">PC đồng bộ</a>
-                        <a href="" class="nav-item nav-link">Tivi</a>
-                        <a href="" class="nav-item nav-link">Thuê Laptop</a>
+                        </div>-->
+                        <c:if test="${not empty model.listResult}">
+                            <c:forEach var="item" items="${model.listResult}">
+                                <a type="hidden" class="nav-item nav-link">${item.ID}</a>
+                                <a href="" class="nav-item nav-link">${item.loai}</a>
+                            </c:forEach>
+                        </c:if>
                     </div>
                 </nav>
             </div>

@@ -11,8 +11,8 @@ public class CategoryMapper implements RowMapper<Category> {
     public Category mapRow(ResultSet rs) {
         try {
             Category category = new Category();
-            category.setLSPID(rs.getInt("LSPID"));
-            category.setLoaiSP(rs.getString("LoaiSP"));
+            category.setID(rs.getLong("ID"));
+            category.setLoaiSP(rs.getString("Loai"));
             return category;
         } catch (SQLException e) {
             return null;

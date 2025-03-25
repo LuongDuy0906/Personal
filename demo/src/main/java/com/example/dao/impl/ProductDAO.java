@@ -11,23 +11,23 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> findByCategoryId(int categoryId) {
-        String sql = "SELECT * FROM SanPham WHERE LoaiSP = ?";
+        String sql = "SELECT * FROM SanPham WHERE IDLSP = ?";
 
         return query(sql, new ProductMapper(), categoryId);
     }
 
     @Override
     public Long save(Product products) {
-        String sql = "INSERT INTO SanPham (TenSP, MoTa, SoLuong, LoaiSP, KMID, Gia, GiaKM, created_at) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO SanPham (TenSP, MoTa, SoLuong, IDLSP, IDKM, Gia, GiaKM, created_at) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        return insert(sql, products.getTenSP(), products.getMoTa(), products.getSoLuong(), products.getLoaiSP(),
-                products.getKMID(), products.getGia(),
+        return insert(sql, products.getTenSP(), products.getMoTa(), products.getSoLuong(), products.getIDLSP(),
+                products.getIDKM(), products.getGia(),
                 products.getGiaKM(), products.getCreated_at());
     }
 
     @Override
     public Product findOne(Long id) {
-        String sql = "SELECT * FROM SanPham WHERE SPID = ?";
+        String sql = "SELECT * FROM SanPham WHERE ID = ?";
 
         List<Product> products = query(sql, new ProductMapper(), id);
         return products.isEmpty() ? null : products.get(0);
@@ -38,13 +38,13 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         String sql = "UPDATE SanPham SET TenSP = ?, MoTa = ?, SoLuong = ?, LoaiSP = ?, KMID = ?, Gia = ?, GiaKM = ?, created_at = ? WHERE SPID = ?";
 
         update(sql, updProduct.getTenSP(), updProduct.getMoTa(), updProduct.getSoLuong(),
-                updProduct.getLoaiSP(), updProduct.getKMID(), updProduct.getGia(),
-                updProduct.getGiaKM(), updProduct.getCreated_at(), updProduct.getSPID());
+                updProduct.getIDLSP(), updProduct.getIDKM(), updProduct.getGia(),
+                updProduct.getGiaKM(), updProduct.getCreated_at(), updProduct.getID());
     }
 
     @Override
     public void delete(long ids) {
-        String sql = "DELETE FROM SanPham WHERE SPID = ?";
+        String sql = "DELETE FROM SanPham WHERE ID = ?";
         update(sql, ids);
     }
 

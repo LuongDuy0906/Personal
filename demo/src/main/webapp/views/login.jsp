@@ -11,34 +11,27 @@
 <body>
     <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
-                <main>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Đăng nhập</h3></div>
                                     <div class="card-body">
-                                        <form action="<c:url value='/admin'/>" method="post">
+                                        <form action="<c:url value='/dang-nhap'/>" id="formSubmit" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TenND" type="email" name="TenND" />
-                                                <label for="TenND">Tên đăng nhập</label>
+                                                <input class="form-control" id="tenND" name="tenND" placeholder="Tên đăng nhập">
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="MatKhau" type="password" name="MatKhau" />
-                                                <label for="MatKhau">Mật khẩu</label>
+                                                <input class="form-control" type="password" id="matKhau" name="matKhau" placeholder="Mật khẩu">
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" type="submit">Login</a>
-                                            </div>
-                                            <input type="hidden" value="" id="action" name="action">
+                                            <input type="hidden" value="login" name="action">
+                                            <button class="btn btn-primary" type="submit">Đăng nhập</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main>
             </div>
         </div>
 </body>

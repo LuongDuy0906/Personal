@@ -4,23 +4,12 @@ import java.sql.Timestamp;
 
 public class User {
     private Long UserID;
-    private String TenND;
-    private String MatKhau;
-    private int VaiTro;
-    private String Ten;
-    private String DiaChi;
-    private String SDT;
+    private String tenND;
+    private String matKhau;
+    private Long IDVT;
     private Timestamp created_at;
     private Timestamp updated_at;
     private Role role = new Role();
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public Long getUserID() {
         return UserID;
@@ -31,51 +20,27 @@ public class User {
     }
 
     public String getTenND() {
-        return TenND;
+        return tenND;
     }
 
     public void setTenND(String tenND) {
-        TenND = tenND;
+        this.tenND = tenND;
     }
 
     public String getMatKhau() {
-        return MatKhau;
+        return matKhau;
     }
 
     public void setMatKhau(String matKhau) {
-        MatKhau = matKhau;
+        this.matKhau = matKhau;
     }
 
-    public int getVaiTro() {
-        return VaiTro;
+    public Long getIDVT() {
+        return IDVT;
     }
 
-    public void setVaiTro(int vaiTro) {
-        VaiTro = vaiTro;
-    }
-
-    public String getTen() {
-        return Ten;
-    }
-
-    public void setTen(String ten) {
-        Ten = ten;
-    }
-
-    public String getDiaChi() {
-        return DiaChi;
-    }
-
-    public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
-    }
-
-    public String getSDT() {
-        return SDT;
-    }
-
-    public void setSDT(String sDT) {
-        SDT = sDT;
+    public void setIDVT(Long iDVT) {
+        IDVT = iDVT;
     }
 
     public Timestamp getCreated_at() {
@@ -93,4 +58,13 @@ public class User {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
 }
