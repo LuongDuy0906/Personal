@@ -49,4 +49,9 @@ public class SupplierService implements ISupplierService {
         return supplierDAO.getTotalItem();
     }
 
+    @Override
+    public Supplier findOne(Long id) {
+        return supplierDAO.findOne(id);
+    }
+
 }

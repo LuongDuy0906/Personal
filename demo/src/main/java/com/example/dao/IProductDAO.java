@@ -8,7 +8,7 @@ import com.example.paging.Pageble;
 public interface IProductDAO extends GenericDAO<Product> {
     Product findOne(Long id);
 
-    List<Product> findByCategoryId(int categoryId);
+    List<Product> findByCategoryId(Long categoryId, Pageble pageble);
 
     Long save(Product products);
 

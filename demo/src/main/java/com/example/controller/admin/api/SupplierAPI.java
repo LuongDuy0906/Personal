@@ -46,7 +46,7 @@ public class SupplierAPI extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         Supplier uSupplier = HttpUtil.of(request.getReader()).toModel(Supplier.class);
-        supplierService.delete(uSupplier.getSPIDs());
+        supplierService.delete(uSupplier.getIDs());
         mapper.writeValue(response.getOutputStream(), "{}");
     }
 }

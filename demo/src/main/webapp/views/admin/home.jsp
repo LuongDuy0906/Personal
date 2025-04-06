@@ -20,7 +20,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Danh sách sản phẩm</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white nav-link active" href="<c:url value='/admin-product?page=1&maxPageItem=5&sortName=TenSP&sortBy=DESC'/>">Xem chi tiết</a>
+                                        <a class="small text-white nav-link active" href="<c:url value='/admin-product?type=list&page=1&maxPageItem=5&sortName=TenSP&sortBy=DESC'/>">Xem chi tiết</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Danh sách nhà cung cấp</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white nav-link active" href="<c:url value='/admin-supplier?page=1&maxPageItem=5&sortName=ID&sortBy=DESC'/>">Xem chi tiết</a>
+                                        <a class="small text-white nav-link active" href="<c:url value='/admin-supplier?type=list&page=1&maxPageItem=5&sortName=tenNCC&sortBy=DESC'/>">Xem chi tiết</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Danh sách nhân viên</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white nav-link active" href="#">Xem chi tiết</a>
+                                        <a class="small text-white nav-link active" href="<c:url value='/admin-employee?type=list&page=1&maxPageItem=5&sortName=hoTen&sortBy=DESC'/>">Xem chi tiết</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

@@ -27,7 +27,7 @@ public class SupplierDAO extends AbstractDAO<Supplier> implements ISupplierDAO {
 
     @Override
     public void update(Supplier updsupplier) {
-        String sql = "UPDATE SanPham SET TenLH = ?, DiaChi = ?, TenLH = ?, SDT = ?, Email = ?, created_at = ? WHERE ID = ?";
+        String sql = "UPDATE NhaCungCap SET TenNCC = ?, DiaChi = ?, TenLH = ?, SDT = ?, Email = ?, created_at = ? WHERE ID = ?";
 
         update(sql, updsupplier.getTenNCC(), updsupplier.getDiaChi(), updsupplier.getTenLH(),
                 updsupplier.getSdt(), updsupplier.getEmail(), updsupplier.getCreated_at(), updsupplier.getID());

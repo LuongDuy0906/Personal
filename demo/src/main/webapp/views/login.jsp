@@ -15,6 +15,11 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <c:if test="${not empty message}">
+                                        <div class="alert alert-${alert}" role="alert">
+                                            ${message}
+                                        </div>
+                                    </c:if>
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Đăng nhập</h3></div>
                                     <div class="card-body">
                                         <form action="<c:url value='/dang-nhap'/>" id="formSubmit" method="POST">

@@ -6,6 +6,7 @@ public class Supplier extends Abstract<Supplier> {
     private String tenLH;
     private String sdt;
     private String email;
+    private String type;
 
     public String getTenNCC() {
         return tenNCC;
@@ -45,6 +46,14 @@ public class Supplier extends Abstract<Supplier> {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

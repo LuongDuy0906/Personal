@@ -15,13 +15,23 @@ public class Abstract<T> {
     private Integer totalPage;
     private Integer totalItem;
     private String sortName;
+    private String sortBy;
+    private String type;
 
-    public long[] getSPIDs() {
+    public long[] getIDs() {
         return IDs;
     }
 
-    public void setSPIDs(long[] sPIDs) {
-        IDs = sPIDs;
+    public void setIDs(long[] iDs) {
+        IDs = iDs;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getID() {
@@ -103,6 +113,4 @@ public class Abstract<T> {
     public void setSortBy(String sortBy) {
         this.sortBy = sortBy;
     }
-
-    private String sortBy;
 }

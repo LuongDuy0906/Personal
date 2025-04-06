@@ -45,7 +45,7 @@ public class ProductAPI extends HttpServlet {
                 request.setCharacterEncoding("UTF-8");
                 response.setContentType("application/json");
                 Product uProduct = HttpUtil.of(request.getReader()).toModel(Product.class);
-                productService.delete(uProduct.getSPIDs());
+                productService.delete(uProduct.getIDs());
                 mapper.writeValue(response.getOutputStream(), "{}");
         }
 

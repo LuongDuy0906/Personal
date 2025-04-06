@@ -6,7 +6,7 @@ import com.example.model.Product;
 import com.example.paging.Pageble;
 
 public interface IProductService {
-    List<Product> findByCategoryId(int categoryId);
+    List<Product> findByCategoryId(Long categoryId, Pageble pageble);
 
     Product save(Product products);
 
@@ -17,4 +17,6 @@ public interface IProductService {
     List<Product> findAll(Pageble pageble);
 
     int getTotalItem();
+
+    Product findOne(Long id);
 }

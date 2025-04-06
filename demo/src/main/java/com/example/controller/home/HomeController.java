@@ -1,6 +1,7 @@
 package com.example.controller.home;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -10,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.constant.SystemConstant;
-import com.example.model.Category;
 import com.example.model.User;
 import com.example.service.ICategoryService;
 import com.example.service.IUserService;
@@ -27,19 +26,25 @@ public class HomeController extends HttpServlet {
     @Inject
     private IUserService userService;
 
+    ResourceBundle mybundle = ResourceBundle.getBundle("message");
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action != null && action.equals("login")) {
+            String message = request.getParameter("message");
+            String alert = request.getParameter("alert");
+            if (message != null && alert != null) {
+                request.setAttribute("message", mybundle.getString(message));
+                request.setAttribute("alert", alert);
+            }
             RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
             rd.forward(request, response);
         } else if (action != null && action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
             response.sendRedirect(request.getContextPath() + "/trang-chu");
         } else {
-            Category categories = new Category();
-            categories.setListResult(categoryService.findAll());
-            request.setAttribute(SystemConstant.MODEL, categories);
+            request.setAttribute("category", categoryService.findAll());
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
             rd.forward(request, response);
         }
@@ -56,10 +61,11 @@ public class HomeController extends HttpServlet {
                 if (user.getRole().getCode().equals("USER")) {
                     response.sendRedirect(request.getContextPath() + "/trang-chu");
                 } else if (user.getRole().getCode().equals("ADMIN")) {
-                    response.sendRedirect(request.getContextPath() + "/admin");
+                    response.sendRedirect(request.getContextPath() + "/admin-home");
                 }
             } else {
-                response.sendRedirect(request.getContextPath() + "/dang-nhap?action=login");
+                response.sendRedirect(request.getContextPath()
+                        + "/dang-nhap?action=login&message=username_password_invalid&alert=danger");
             }
         }
     }

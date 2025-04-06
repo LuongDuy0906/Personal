@@ -2,6 +2,8 @@ package com.example.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.example.dao.IProductDAO;
 import com.example.mapper.ProductMapper;
 import com.example.model.Product;
@@ -10,10 +12,17 @@ import com.example.paging.Pageble;
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
-    public List<Product> findByCategoryId(int categoryId) {
-        String sql = "SELECT * FROM SanPham WHERE IDLSP = ?";
+    public List<Product> findByCategoryId(Long categoryId, Pageble pageble) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM SanPham WHERE IDLSP = ?");
+        if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName())
+                && StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
+            sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
+        }
+        if (pageble.getOffset() != null && pageble.getLimit() != null) {
+            sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit() + "");
+        }
 
-        return query(sql, new ProductMapper(), categoryId);
+        return query(sql.toString(), new ProductMapper(), categoryId);
     }
 
     @Override
@@ -35,7 +44,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public void update(Product updProduct) {
-        String sql = "UPDATE SanPham SET TenSP = ?, MoTa = ?, SoLuong = ?, LoaiSP = ?, KMID = ?, Gia = ?, GiaKM = ?, created_at = ? WHERE SPID = ?";
+        String sql = "UPDATE SanPham SET TenSP = ?, MoTa = ?, SoLuong = ?, IDLSP = ?, IDKM = ?, Gia = ?, GiaKM = ?, created_at = ? WHERE ID = ?";
 
         update(sql, updProduct.getTenSP(), updProduct.getMoTa(), updProduct.getSoLuong(),
                 updProduct.getIDLSP(), updProduct.getIDKM(), updProduct.getGia(),

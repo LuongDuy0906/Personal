@@ -19,7 +19,7 @@
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                             </svg>
                         </button>
-                        <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-menu">
                             <c:if test="${not empty USERMODEL}">
                                 <button class="dropdown-item" type="button">
                                     Welcome, ${USERMODEL.tenND}
@@ -32,7 +32,9 @@
                                 <button class="dropdown-item" type="button">
                                     <a class="nav-link active" href="<c:url value='/dang-nhap?action=login'/>">Đăng nhập</a>
                                 </button>
-                                <button class="dropdown-item" type="button">Đăng ký</button>
+                                <button class="dropdown-item" type="button">
+                                    <a class="nav-link active">Đăng ký</a>
+                                </button>
                             </c:if>
                         </div>
                     </div>
@@ -116,10 +118,9 @@
                                 <a href="" class="dropdown-item">Lenovo</a>
                             </div>
                         </div>-->
-                        <c:if test="${not empty model.listResult}">
-                            <c:forEach var="item" items="${model.listResult}">
-                                <a type="hidden" class="nav-item nav-link">${item.ID}</a>
-                                <a href="" class="nav-item nav-link">${item.loai}</a>
+                        <c:if test="${not empty category}">
+                            <c:forEach var="item" items="${category}">
+                                <a href="<c:url value='/san-pham?IDLSP=${item.ID}&page=1&maxPageItem=5&sortName=TenSP&sortBy=DESC'/>" class="nav-item nav-link">${item.loai}</a>
                             </c:forEach>
                         </c:if>
                     </div>

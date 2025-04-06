@@ -16,4 +16,6 @@ public interface ISupplierService {
     List<Supplier> findAll(Pageble pageble);
 
     int getTotalItem();
+
+    Supplier findOne(Long id);
 }

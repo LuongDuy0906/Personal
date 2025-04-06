@@ -1,36 +1,37 @@
 package com.example.model;
 
 public class Product extends Abstract<Product> {
-    private String TenSP;
-    private String MoTa;
-    private int SoLuong;
+    private String tenSP;
+    private String moTa;
+    private int soLuong;
     private Long IDLSP;
     private int IDKM;
-    private int Gia;
-    private int GiaKM;
+    private int gia;
+    private int giaKM;
+    private String code;
 
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
     }
 
     public void setTenSP(String tenSP) {
-        TenSP = tenSP;
+        this.tenSP = tenSP;
     }
 
     public String getMoTa() {
-        return MoTa;
+        return moTa;
     }
 
     public void setMoTa(String moTa) {
-        MoTa = moTa;
+        this.moTa = moTa;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
+        this.soLuong = soLuong;
     }
 
     public Long getIDLSP() {
@@ -50,18 +51,27 @@ public class Product extends Abstract<Product> {
     }
 
     public int getGia() {
-        return Gia;
+        return gia;
     }
 
     public void setGia(int gia) {
-        Gia = gia;
+        this.gia = gia;
     }
 
     public int getGiaKM() {
-        return GiaKM;
+        return giaKM;
     }
 
     public void setGiaKM(int giaKM) {
-        GiaKM = giaKM;
+        this.giaKM = giaKM;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 }

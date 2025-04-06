@@ -20,12 +20,18 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<c:url value='/template/web/css/style.css'/>" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    <script src="<c:url value='template/paging/jquery.twbsPagination.js'/>"></script>
+    <script src="<c:url value='/template/web/js/main.js'/>"></script>
+</head>
 <body>
     <!-- header -->
     <%@ include file="/common/web/header.jsp"%>
     <!-- header -->
 
-    <div class="container-fluid mb-3">
+    <div class="container-fluid">
         <dec:body/>
     </div>
 
@@ -34,8 +40,7 @@
     <!-- footer -->
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
     <script src="<c:url value='/template/web/lib/easing/easing.min.js'/>"></script>
     <script src="<c:url value='/template/web/lib/owlcarousel/owl.carousel.min.js'/>"></script>
 
@@ -44,6 +49,6 @@
     <script src="<c:url value='/template/web/mail/contact.js'/>"></script>
 
     <!-- Template Javascript -->
-    <script src="<c:url value='/template/web/js/main.js'/>"></script>
 
 </body>
+</html>
